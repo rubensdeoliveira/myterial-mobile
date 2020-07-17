@@ -144,7 +144,7 @@ const SignUp: React.FC = () => {
         }}
       >
         <Icon name="arrow-left" size={20} color="#fff" />
-        <BackToSignText>Voltar para logon</BackToSignText>
+        <BackToSignText>Voltar para login</BackToSignText>
       </BackToSign>
     </>
   )

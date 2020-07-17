@@ -67,8 +67,6 @@ const SignIn: React.FC = () => {
           return
         }
 
-        console.log(err)
-
         Alert.alert(
           'Erro na autenticação',
           'Ocorreu um erro ao fazer login, cheque as credenciais',
@@ -91,7 +89,7 @@ const SignIn: React.FC = () => {
         >
           <Container>
             <View>
-              <Title>Faça seu logon</Title>
+              <Title>Faça seu login</Title>
             </View>
 
             <Form ref={formRef} onSubmit={handleSignIn}>
@@ -130,7 +128,7 @@ const SignIn: React.FC = () => {
 
             <ForgotPassword
               onPress={() => {
-                console.log('teste')
+                console.log('forgot')
               }}
             >
               <ForgotPasswordText>Esqueci minha senha</ForgotPasswordText>
