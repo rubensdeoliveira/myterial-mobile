@@ -1,5 +1,8 @@
 import styled from 'styled-components/native'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
+import { FlatList } from 'react-native'
+import { RectButton } from 'react-native-gesture-handler'
+import { Material } from './index'
 
 export const Container = styled.View`
   flex: 1;
@@ -33,4 +36,53 @@ export const UserAvatar = styled.Image`
   width: 56px;
   height: 56px;
   border-radius: 28px;
+`
+
+export const MaterialsList = styled(FlatList as new () => FlatList<Material>)`
+  padding: 32px 24px 16px;
+`
+
+export const MaterialsListTitle = styled.Text`
+  font-size: 24px;
+  margin-bottom: 24px;
+  color: #f4ede8;
+  font-family: 'RobotoSlab-Medium';
+`
+
+export const MaterialContainer = styled(RectButton)`
+  background: #3e3b47;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 16px;
+  flex-direction: row;
+  align-items: center;
+`
+
+export const MaterialAvatar = styled.Image`
+  width: 72px;
+  height: 72px;
+  border-radius: 36px;
+`
+
+export const MaterialInfo = styled.View`
+  flex: 1;
+  margin-left: 20px;
+`
+
+export const MaterialName = styled.Text`
+  font-family: 'RobotoSlab-Medium';
+  font-size: 18px;
+  color: #f4ede8;
+`
+
+export const MaterialMeta = styled.View`
+  flex-direction: row;
+  align-items: center;
+  margin-top: 8px;
+`
+
+export const MaterialMetaText = styled.Text`
+  margin-left: 8px;
+  color: #999591;
+  font-family: 'RobotoSlab-Regular';
 `
