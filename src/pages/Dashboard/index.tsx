@@ -59,6 +59,13 @@ const Dashboard: React.FC = () => {
     navigate('CreateMaterial')
   }, [navigate])
 
+  const navigateToMaterialDetail = useCallback(
+    (materialId: string) => {
+      navigate('MaterialDetail', { materialId })
+    },
+    [navigate],
+  )
+
   return (
     <Container>
       <Header>
@@ -83,7 +90,7 @@ const Dashboard: React.FC = () => {
         renderItem={({ item: material }) => (
           <MaterialContainer
             onPress={() => {
-              console.log('ihu')
+              navigateToMaterialDetail(material.id)
             }}
           >
             <MaterialAvatar source={{ uri: material.photo_url }} />

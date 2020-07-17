@@ -20,10 +20,15 @@ import Button from '../../components/Button'
 
 import { Container, Title, BackButton } from './styles'
 
-interface SignUpFormData {
+interface CreateMaterialFormData {
+  code: string
   name: string
-  email: string
-  password: string
+  description: string
+  manufacturer: string
+  amount: number
+  price: number
+  unity: string
+  note: string
 }
 
 const CreateMaterial: React.FC = () => {
@@ -38,8 +43,8 @@ const CreateMaterial: React.FC = () => {
   const unityInputRef = useRef<TextInput>(null)
   const noteInputRef = useRef<TextInput>(null)
 
-  const handleSignUp = useCallback(
-    async (data: SignUpFormData) => {
+  const handleCreateMaterial = useCallback(
+    async (data: CreateMaterialFormData) => {
       try {
         formRef.current?.setErrors({})
 
@@ -107,7 +112,7 @@ const CreateMaterial: React.FC = () => {
               <Title>Adicione um material</Title>
             </View>
 
-            <Form ref={formRef} onSubmit={handleSignUp}>
+            <Form ref={formRef} onSubmit={handleCreateMaterial}>
               <Input
                 autoCapitalize="words"
                 name="code"
@@ -202,7 +207,7 @@ const CreateMaterial: React.FC = () => {
                   formRef.current?.submitForm()
                 }}
               >
-                Cadastrar
+                Adicionar
               </Button>
             </Form>
           </Container>
