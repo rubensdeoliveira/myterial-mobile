@@ -25,6 +25,10 @@ export const HeaderTitle = styled.Text`
   line-height: 28px;
 `
 
+export const ButtonContainer = styled.View`
+  padding: 10px 20px 0px 20px;
+`
+
 export const Username = styled.Text`
   color: #ff9000;
   font-family: 'RobotoSlab-Medium';

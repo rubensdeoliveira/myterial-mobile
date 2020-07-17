@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react'
-import { useNavigation } from '@react-navigation/native'
+import { useNavigation, useFocusEffect } from '@react-navigation/native'
 import Icon from 'react-native-vector-icons/Feather'
 import api from '../../services/api'
 import { useAuth } from '../../hooks/auth'
@@ -8,6 +8,7 @@ import {
   Container,
   Header,
   HeaderTitle,
+  ButtonContainer,
   Username,
   ProfileButton,
   UserAvatar,
@@ -20,6 +21,7 @@ import {
   MaterialMeta,
   MaterialMetaText,
 } from './styles'
+import Button from '../../components/Button'
 
 export interface Material {
   id: string
@@ -35,14 +37,26 @@ const Dashboard: React.FC = () => {
   const { signOut, user } = useAuth()
   const { navigate } = useNavigation()
 
-  useEffect(() => {
-    api.get('materials/me').then((response) => {
-      setMaterials(response.data)
-    })
-  }, [])
+  // useEffect(() => {
+  //   api.get('materials/me').then((response) => {
+  //     setMaterials(response.data)
+  //   })
+  // }, [])
+
+  useFocusEffect(
+    useCallback(() => {
+      api.get('materials/me').then((response) => {
+        setMaterials(response.data)
+      })
+    }, []),
+  )
 
   const navigateToProfile = useCallback(() => {
     navigate('Profile')
+  }, [navigate])
+
+  const navigateToCreateMaterial = useCallback(() => {
+    navigate('CreateMaterial')
   }, [navigate])
 
   return (
@@ -57,6 +71,10 @@ const Dashboard: React.FC = () => {
           <UserAvatar source={{ uri: user.avatar_url }} />
         </ProfileButton>
       </Header>
+
+      <ButtonContainer>
+        <Button onPress={navigateToCreateMaterial}>Adicionar material</Button>
+      </ButtonContainer>
 
       <MaterialsList
         data={materials}
