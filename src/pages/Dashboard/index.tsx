@@ -13,7 +13,7 @@ import {
 } from './styles'
 
 const Dashboard: React.FC = () => {
-  const { user } = useAuth()
+  const { signOut, user } = useAuth()
   const { navigate } = useNavigation()
 
   useEffect(() => {
