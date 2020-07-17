@@ -63,8 +63,6 @@ const CreateMaterial: React.FC = () => {
           abortEarly: false,
         })
 
-        console.log(data)
-
         await api.post('/materials', data)
 
         Alert.alert(

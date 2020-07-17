@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import { useNavigation, useFocusEffect } from '@react-navigation/native'
 import Icon from 'react-native-vector-icons/Feather'
 import api from '../../services/api'
@@ -34,7 +34,7 @@ export interface Material {
 const Dashboard: React.FC = () => {
   const [materials, setMaterials] = useState<Material[]>([])
 
-  const { signOut, user } = useAuth()
+  const { user } = useAuth()
   const { navigate } = useNavigation()
 
   // useEffect(() => {
